@@ -6,26 +6,8 @@ class Departamento:
         self.gerente = gerente
         self._empleados: list[Empleado] = []
 
-    def asignar_empleado(self,empleado):
 
-        self.empleados.append(empleado)
-        return True
-    
-    def reasignar_empleado(self,empleado):
-        return True
-    
-    def editar(self, nombre,gerente):
-        self.nombre = nombre
-        self.gerente = gerente
-        return True
-    
-    def eliminar(self):
-        return True
-
-
-
-
-def agregar_empleado(self, empleado: Empleado) -> bool:
+    def agregar_empleado(self, empleado: Empleado) -> bool:
     if empleado in self._empleados:
         return False
 
@@ -42,6 +24,20 @@ def empleados(self) -> tuple:
 
 def cantidad_empleados(self) -> int:
     return len(self._empleados)
+
+    
+def reasignar_empleado(self,empleado):
+        return True
+    
+def editar(self, nombre,gerente):
+    self.nombre = nombre
+    self.gerente = gerente
+    return True
+    
+def eliminar(self):
+        return True
+
+
 
 
 
