@@ -2,7 +2,8 @@
 from datetime import date
 
 class Empleado:
-    def __init__(self, nombre: str, direccion: str, telefono: int, correo: str, fechainiciocontrato: date, salario: int):
+    def __init__(self, nombre: str, direccion: str, telefono: int, correo: str, fechainiciocontrato: date, salario: int, id= None):
+        self.id = id
         self.nombre = nombre
         self.direccion = direccion
         self.telefono = telefono
