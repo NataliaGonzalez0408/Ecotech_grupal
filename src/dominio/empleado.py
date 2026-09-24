@@ -2,16 +2,21 @@
 from datetime import date
 
 class Empleado:
-    def __init__(self, nombre: str, direccion: str, telefono: int, correo: str, fechainiciocontrato: date, salario: int):
+    #def __init__(self, nombre: str, direccion: str, telefono: int, correo: str, fechainiciocontrato: date, salario: int, id=None):
+
+    def __init__(self, nombre: str, correo: str, id=None):
         self.nombre = nombre
-        self.direccion = direccion
-        self.telefono = telefono
+        #self.direccion = direccion
+        #self.telefono = telefono
         self.correo = correo
-        self.fechainiciocontrato = fechainiciocontrato
-        self.salario = salario
+        #self.fechainiciocontrato = fechainiciocontrato
+        #self.salario = salario
+        self.id = id
 
     def mostrar_datos(self) -> str:
-        return f"{self.nombre} - {self.direccion} - {self.telefono} - {self.correo} - {self.fechainiciocontrato} - {self.salario}"
+        #return f"{self.nombre} - {self.direccion} - {self.telefono} - {self.correo} - {self.fechainiciocontrato} - {self.salario} - {self.id}"
+        
+        return f"{self.nombre} - {self.correo} - {self.id}"
 
     def gestionar_informacion(self) -> bool:
         return True
