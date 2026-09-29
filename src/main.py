@@ -14,4 +14,23 @@ empleado = Empleado(
 EmpleadoDAO.insertar(empleado)
 
 encontrado = EmpleadoDAO.buscar_por_id(empleado.id)
+
 print("Encontrado:", encontrado.mostrar_datos())
+
+resultado = EmpleadoDAO.eliminar(99999)
+print("Resultado de eliminar empleado con ID 99999:", resultado)
+print(resultado)
+
+try:
+        empleado.correo = "ana.nueva@ecotech.cl"
+        actualizado = EmpleadoDAO.actualizar(empleado)
+
+        if actualizado:
+                print("Empleado actualizado correctamente.")
+        else:
+                print("Empleado no encontrado.")
+
+except Exception:
+        print(
+                "No fue posible completar la operación."
+)

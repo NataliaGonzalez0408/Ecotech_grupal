@@ -31,3 +31,20 @@ def marcador_sql():
     return "%s"
 
 
+conexion = None
+try:
+    conexion = abrir_conexion()
+    cursor = conexion.cursor()
+
+    # ejecutar operación
+
+    conexion.commit()
+
+except Exception:
+    if conexion:
+        conexion.rollback()
+    raise
+
+finally:
+    if conexion:
+        conexion.close()
