@@ -14,6 +14,7 @@ empleado = Empleado(
 EmpleadoDAO.insertar(empleado)
 
 encontrado = EmpleadoDAO.buscar_por_id(empleado.id)
+<<<<<<< HEAD
 
 print("Encontrado:", encontrado.mostrar_datos())
 
@@ -34,3 +35,6 @@ except Exception:
         print(
                 "No fue posible completar la operación."
 )
+=======
+print("Encontrado:", encontrado.mostrar_datos())
+>>>>>>> 53c835e955485d63db50440cf4d6dd47cae41487

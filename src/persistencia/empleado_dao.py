@@ -48,6 +48,7 @@ class EmpleadoDAO:
             correo=fila[2]
         )
 
+<<<<<<< HEAD
     @staticmethod
     def listar():
         conexion = abrir_conexion()
@@ -70,17 +71,28 @@ class EmpleadoDAO:
                 )
             )
         return empleados
+=======
+>>>>>>> 53c835e955485d63db50440cf4d6dd47cae41487
 
     @staticmethod
     def actualizar(empleado):
         conexion = abrir_conexion()
         cursor = conexion.cursor()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 53c835e955485d63db50440cf4d6dd47cae41487
         marca = marcador_sql()
         sql = (
             "UPDATE empleado "
             f"SET nombre = {marca}, correo = {marca} "
             f"WHERE id = {marca}"
         )
+<<<<<<< HEAD
+=======
+
+        
+>>>>>>> 53c835e955485d63db50440cf4d6dd47cae41487
         cursor.execute(
             sql,
             (
@@ -89,6 +101,7 @@ class EmpleadoDAO:
                 empleado.id
             )
         )
+<<<<<<< HEAD
     
         conexion.commit()
         filas_afectadas = cursor.rowcount
@@ -152,3 +165,16 @@ class EmpleadoDAO:
 
         conexion.close()
         return eliminado
+=======
+
+
+        conexion.commit()
+        filas_afectadas = cursor.rowcount
+        conexion.close()
+
+        return filas_afectadas > 0
+
+
+
+
+>>>>>>> 53c835e955485d63db50440cf4d6dd47cae41487

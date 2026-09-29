@@ -32,6 +32,10 @@ def marcador_sql():
 
 
 conexion = None
+<<<<<<< HEAD
+=======
+
+>>>>>>> 53c835e955485d63db50440cf4d6dd47cae41487
 try:
     conexion = abrir_conexion()
     cursor = conexion.cursor()
@@ -48,3 +52,11 @@ except Exception:
 finally:
     if conexion:
         conexion.close()
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> 53c835e955485d63db50440cf4d6dd47cae41487
