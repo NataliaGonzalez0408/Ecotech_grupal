@@ -47,3 +47,37 @@ class EmpleadoDAO:
             nombre=fila[1],
             correo=fila[2]
         )
+
+
+    @staticmethod
+    def actualizar(empleado):
+        conexion = abrir_conexion()
+        cursor = conexion.cursor()
+
+        marca = marcador_sql()
+        sql = (
+            "UPDATE empleado "
+            f"SET nombre = {marca}, correo = {marca} "
+            f"WHERE id = {marca}"
+        )
+
+        
+        cursor.execute(
+            sql,
+            (
+                empleado.nombre,
+                empleado.correo,
+                empleado.id
+            )
+        )
+
+
+        conexion.commit()
+        filas_afectadas = cursor.rowcount
+        conexion.close()
+
+        return filas_afectadas > 0
+
+
+
+
