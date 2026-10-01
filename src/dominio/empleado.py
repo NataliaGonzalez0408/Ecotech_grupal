@@ -5,15 +5,14 @@ class Empleado:
 
     #def __init__(self, nombre: str, direccion: str, telefono: int, correo: str, fechainiciocontrato: date, salario: int, id=None):
 
-    def __init__(self, nombre: str, correo: str, id=None):
+    def __init__(self, nombre: str, correo: str, telefono: int, fecha_inicio_contrato: date, salario: int, id=None):
 
         self.id = id
         self.nombre = nombre
-        #self.direccion = direccion
-        #self.telefono = telefono
+        self.telefono = telefono
         self.correo = correo
-        #self.fechainiciocontrato = fechainiciocontrato
-        #self.salario = salario
+        self.fecha_inicio_contrato = fecha_inicio_contrato
+        self.salario = salario
         self.id = id
 
     def mostrar_datos(self) -> str:

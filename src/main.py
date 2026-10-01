@@ -4,37 +4,51 @@ from dominio.departamento import Departamento
 from persistencia.empleado_dao import EmpleadoDAO
 from persistencia.crear_bd import crear_tablas
 
-crear_tablas()
+def mostrar_menu():
+        print("\n===== ECOTECH =====")
+        print("1. Registrar empleado")
+        print("2. Listar empleados")
+        print("3. Buscar empleado")
+        print("4. Actualizar empleado")
+        print("5. Eliminar empleado")
+        print("0. Salir")
 
-empleado = Empleado(
-        nombre="Ana Torres",
-        correo="ana.torres@ecotech.cl"
-)
+def registrar_empleado():
+        nombre = input("Nombre: ").strip()
+        correo = input("Correo: ").strip()
+        telefono = input("Teléfono: ").strip()
+       
+     
 
-EmpleadoDAO.insertar(empleado)
+        empleado = Empleado(nombre, correo,telefono)
+        try:
+                EmpleadoDAO.insertar(empleado)
+                print("Empleado registrado correctamente.")
 
-encontrado = EmpleadoDAO.buscar_por_id(empleado.id)
-<<<<<<< HEAD
+        except Exception:
+                print("No fue posible registrar el empleado.")
 
-print("Encontrado:", encontrado.mostrar_datos())
 
-resultado = EmpleadoDAO.eliminar(99999)
-print("Resultado de eliminar empleado con ID 99999:", resultado)
-print(resultado)
+def main():
+        while True:
+                mostrar_menu()
 
-try:
-        empleado.correo = "ana.nueva@ecotech.cl"
-        actualizado = EmpleadoDAO.actualizar(empleado)
+                opcion = input("Seleccione una opción: ")
 
-        if actualizado:
-                print("Empleado actualizado correctamente.")
-        else:
-                print("Empleado no encontrado.")
+                if opcion == "1":
+                        registrar_empleado()
 
-except Exception:
-        print(
-                "No fue posible completar la operación."
-)
-=======
-print("Encontrado:", encontrado.mostrar_datos())
->>>>>>> 53c835e955485d63db50440cf4d6dd47cae41487
+                elif opcion == "2":
+                        #listar_empleados()
+                        print("listar")
+                elif opcion == "0":
+                        print("Hasta luego.")
+                        break
+
+                else:
+                        print("Opción no válida.")
+
+if __name__ == "__main__":
+        main()
+
+

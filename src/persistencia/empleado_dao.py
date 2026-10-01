@@ -10,8 +10,9 @@ class EmpleadoDAO:
         marcador = "?" if obtener_motor() == "sqlite" else "%s"
 
         sql = f"""
-            INSERT INTO empleado (nombre, correo)
+            INSERT INTO empleado (nombre, correo,telefono,fecha_inicio_contrato,salario)
             VALUES ({marcador}, {marcador})
+
         """
 
         cursor.execute(sql, (empleado.nombre, empleado.correo))
@@ -48,7 +49,7 @@ class EmpleadoDAO:
             correo=fila[2]
         )
 
-<<<<<<< HEAD
+
     @staticmethod
     def listar():
         conexion = abrir_conexion()
@@ -71,44 +72,6 @@ class EmpleadoDAO:
                 )
             )
         return empleados
-=======
->>>>>>> 53c835e955485d63db50440cf4d6dd47cae41487
-
-    @staticmethod
-    def actualizar(empleado):
-        conexion = abrir_conexion()
-        cursor = conexion.cursor()
-<<<<<<< HEAD
-=======
-
->>>>>>> 53c835e955485d63db50440cf4d6dd47cae41487
-        marca = marcador_sql()
-        sql = (
-            "UPDATE empleado "
-            f"SET nombre = {marca}, correo = {marca} "
-            f"WHERE id = {marca}"
-        )
-<<<<<<< HEAD
-=======
-
-        
->>>>>>> 53c835e955485d63db50440cf4d6dd47cae41487
-        cursor.execute(
-            sql,
-            (
-                empleado.nombre,
-                empleado.correo,
-                empleado.id
-            )
-        )
-<<<<<<< HEAD
-    
-        conexion.commit()
-        filas_afectadas = cursor.rowcount
-        conexion.close()
-        
-        return filas_afectadas > 0
-
 
     @staticmethod
     def actualizar(empleado):
@@ -165,16 +128,3 @@ class EmpleadoDAO:
 
         conexion.close()
         return eliminado
-=======
-
-
-        conexion.commit()
-        filas_afectadas = cursor.rowcount
-        conexion.close()
-
-        return filas_afectadas > 0
-
-
-
-
->>>>>>> 53c835e955485d63db50440cf4d6dd47cae41487

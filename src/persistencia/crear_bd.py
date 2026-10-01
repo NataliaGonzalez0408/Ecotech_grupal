@@ -10,16 +10,22 @@ def crear_tablas():
             CREATE TABLE IF NOT EXISTS empleado (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nombre TEXT NOT NULL,
-            correo TEXT NOT NULL
-            )
+            correo TEXT NOT NULL UNIQUE,
+            telefono TEXT,
+            fecha_inicio_contrato TEXT,
+            salario INTEGER
+        );
 '''
     else:
         sql = '''
             CREATE TABLE IF NOT EXISTS empleado (
             id INT PRIMARY KEY AUTO_INCREMENT,
             nombre VARCHAR(100) NOT NULL,
-            correo VARCHAR(150) NOT NULL
-            )   
+            correo VARCHAR(150) NOT NULL UNIQUE,
+            telefono VARCHAR(20),
+            fecha_inicio_contrato DATE,
+            salario DECIMAL(10, 2)
+        );
 '''
     cursor.execute(sql)
     conexion.commit()
