@@ -3,6 +3,7 @@ from persistencia.conexion import (abrir_conexion,obtener_motor )
 def crear_tablas():
     conexion = abrir_conexion()
     cursor = conexion.cursor()
+    
 
 # tabla empleado
     if obtener_motor() == "sqlite":
@@ -28,13 +29,15 @@ def crear_tablas():
             salario DECIMAL(10, 2)
         );
 '''
+    cursor.execute(sql)
+    
 #tabla departamento
     if obtener_motor() == "sqlite":
         sql = '''
         CREATE TABLE IF NOT EXISTS departamento (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nombre TEXT NOT NULL,
-        gerente TEXT,
+        gerente TEXT
         );
 '''
     else:
@@ -42,10 +45,10 @@ def crear_tablas():
         CREATE TABLE IF NOT EXISTS departamento (
         id INT PRIMARY KEY AUTO_INCREMENT,
         nombre Varchar(100) NOT NULL,
-        gerente Varchar(100),
+        gerente Varchar(100)
         );
 '''
-    
+    cursor.execute(sql)
 
 #tabla proyecto
     if obtener_motor() == "sqlite":
@@ -54,34 +57,40 @@ def crear_tablas():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nombre TEXT NOT NULL,
         descripcion TEXT,
-        fecha_inicio Date,
+        fecha_inicio TEXT
         );
 '''
     else:
         sql = '''
-        CRATE TABLE IF NOT EXISTS proyecto (
+        CREATE TABLE IF NOT EXISTS proyecto (
         id INT PRIMARY KEY AUTO_INCREMENT,
         nombre Varchar(100) NOT NULL,
         descripcion Varchar(160),
-        fecha_inicio Date,
+        fecha_inicio Date
         );
 '''
+    cursor.execute(sql)
 
 # tabla registro de tiempo
     if obtener_motor() == "sqlite":
         sql = '''
-        CREATE TABLE IF NOT EXISTS registro tiempo (
+        CREATE TABLE IF NOT EXISTS registro_tiempo (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        fecha Date,
-        cantidad_horas 
-        )
+        fecha TEXT,
+        cantidad_horas REAL
+        );
 '''
-
-
-
-
+    else:
+        sql = '''
+        CREATE TABLE IF NOT EXISTS registro_tiempo (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            fecha DATE,
+            cantidad_horas DECIMAL(4, 2)
+        );
+'''
     cursor.execute(sql)
-    cursor.execute(sql)
+
+
     conexion.commit()
     conexion.close()
 
