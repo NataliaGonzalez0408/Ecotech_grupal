@@ -48,12 +48,3 @@ except Exception:
 finally:
     if conexion:
         conexion.close()
-
-
-
-
-
-
-
-
-

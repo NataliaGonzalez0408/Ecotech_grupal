@@ -2,7 +2,7 @@ from dominio.empleado import Empleado
 from persistencia.empleado_dao import EmpleadoDAO
 from persistencia.crear_bd import crear_tablas
 
-def mostrar_menu():
+def menu_empleado():
         print("\n===== ECOTECH =====")
         print("1. Registrar empleado")
         print("2. Listar empleados")
@@ -13,7 +13,7 @@ def mostrar_menu():
 
 def ejecutar_menu():
         while True:
-                mostrar_menu()
+                menu_empleado()
                 opcion = input("Selecciona una opción: ")
 
                 if opcion == "1":
@@ -39,7 +39,7 @@ def registrar_empleado():
         fecha_inicio_contrato = input("Fecha de inicio de contrato (YYYY-MM-DD): ").strip()
         salario = float(input("Salario: ").strip())
 
-        empleado = Empleado(nombre, correo,telefono)
+        empleado = Empleado(nombre, correo, telefono, fecha_inicio_contrato, salario)
         try:
                 EmpleadoDAO.insertar(empleado)
                 print("Empleado registrado correctamente.")

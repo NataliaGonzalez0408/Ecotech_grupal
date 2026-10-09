@@ -1,8 +1,4 @@
 #src/main.py
-from dominio.empleado import Empleado
-from dominio.departamento import Departamento
-from dominio.proyecto import proyecto
-from dominio.registro_tiempo import registroTiempo
 from persistencia.empleado_dao import EmpleadoDAO
 from persistencia.crear_bd import crear_tablas
 from menus.menu_empleado import menu_empleado
@@ -30,6 +26,8 @@ def main():
                         menu_registro_tiempo()
                 elif opcion == "0":
                         break
+                else:
+                        print("Opción inválida. Intente nuevamente.")
 
 if __name__ == "__main__":
         crear_tablas()

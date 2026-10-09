@@ -2,7 +2,7 @@ from dominio.departamento import Departamento
 from persistencia.departamento_dao import DepartamentoDAO
 from persistencia.crear_bd import crear_tablas
 
-def mostrar_menu():
+def menu_departamento():
         print("\n===== ECOTECH =====")
         print("1. Registrar departamentos")
         print("2. Listar departamentos")
@@ -13,7 +13,7 @@ def mostrar_menu():
 
 def ejecutar_menu():
         while True:
-                mostrar_menu()
+                menu_departamento()
                 opcion = input("Selecciona una opción: ")
 
                 if opcion == "1":
