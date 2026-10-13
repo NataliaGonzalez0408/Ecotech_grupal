@@ -44,6 +44,8 @@ source .venv/Scripts/activate
 
 5.- Instalar las dependencias necesarias:
 
+pip install pymysql
+pip install dotenv
 pip install -r requirements.txt
 
 
