@@ -1,9 +1,9 @@
-# persistencia/conexion.py
-
 import os
 import sqlite3
 import pymysql
 from dotenv import load_dotenv
+
+load_dotenv()  # Cargar variables de entorno desde el archivo .env
 
 def obtener_motor():
     return os.getenv("DB_ENGINE", "sqlite").lower()
