@@ -1,0 +1,25 @@
+from datetime import date
+from dominio.empleado import Empleado
+
+def crear_empleados_semilla():
+    empleados = [
+        Empleado(
+            id_empleado="EMP01",  # 5 caracteres
+            nombre="Ana Pérez",
+            direccion="Calle Falsa 123",
+            telefono=987654321,
+            correo_electronico="ana.perez@email.com",
+            fecha_inicio_contrato=date(2023, 3, 1),
+            salario=1200000
+        ),
+        Empleado(
+            id_empleado="EMP02",  # 5 caracteres
+            nombre="Carlos Gómez",
+            direccion="Avenida Principal 456",
+            telefono=912345678,
+            correo_electronico="carlos.gomez@email.com",
+            fecha_inicio_contrato=date(2022, 6, 15),
+            salario=1500000
+        )
+    ]
+    return empleados
