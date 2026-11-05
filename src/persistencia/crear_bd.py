@@ -91,6 +91,25 @@ def crear_tablas():
         );
         '''
     cursor.execute(sql)
+    #5. tabla usuario
+    if obtener_motor() == "sqlite";
+        CREATE TABLE IF NOT EXISTS usuario (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nombre_usuario TEXT NOT NULL,
+            password_hash TEXT NOT NULL,
+            empleado_id INTEGER,
+            FOREIGN KEY (empleado_id) REFERENCES empleado(id) ON DELETE CASCADE
+        );
+        ...
+    else:
+        CREATE TABLE IF NOT EXISTS usuario (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            nombre_usuario VARCHAR(40) NOT NULL,
+            password_hash VARCHAR(255) NOT NULL,
+            empleado_id INT,
+            FOREIGN KEY (empleado_id) REFERENCES empleado(id) ON DELETE CASCADE
+        );
+        ...
 
     conexion.commit()
     conexion.close()
